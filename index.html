@@ -1,0 +1,2772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niel Publishing Ltd | Where Authors Are Seen, Understood & Elevated</title>
+<link rel="icon" type="image/png" href="Nielpublishingltd1.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+--cyan: #00BCD4;
+--magenta: #E91E63;
+--yellow: #FFC107;
+--key-black: #1a1a2e;
+--deep-navy: #16213e;
+--royal-blue: #0f3460;
+--accent-cyan: #00d4ff;
+--accent-magenta: #ff2d75;
+--accent-yellow: #ffca28;
+--gold: #d4a855;
+--cream: #faf8f5;
+--white: #ffffff;
+--text-dark: #1a1a2e;
+--text-light: #f0f0f0;
+--gradient-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+--gradient-accent: linear-gradient(135deg, #00BCD4, #E91E63, #FFC107);
+--gradient-gold: linear-gradient(135deg, #d4a855, #f0c97a, #d4a855);
+--shadow-heavy: 0 25px 60px rgba(0,0,0,0.3);
+--shadow-medium: 0 15px 40px rgba(0,0,0,0.15);
+--shadow-light: 0 8px 25px rgba(0,0,0,0.1);
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+overflow-x: hidden;
+}
+body {
+font-family: 'Inter', sans-serif;
+color: var(--text-dark);
+background: var(--cream);
+overflow-x: hidden;
+}
+/* PRELOADER */
+.preloader {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: var(--key-black);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 99999;
+transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.preloader.hidden {
+opacity: 0;
+visibility: hidden;
+}
+.preloader-content {
+text-align: center;
+}
+.preloader-logo {
+width: 120px;
+height: 120px;
+border-radius: 50%;
+object-fit: cover;
+margin-bottom: 30px;
+animation: preloaderPulse 1.5s ease-in-out infinite;
+border: 3px solid var(--gold);
+}
+@keyframes preloaderPulse {
+0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(212,168,85,0.7); }
+50% { transform: scale(1.05); opacity: 0.8; box-shadow: 0 0 30px 15px rgba(212,168,85,0); }
+}
+.preloader-text {
+font-family: 'Playfair Display', serif;
+color: var(--gold);
+font-size: 1.5rem;
+letter-spacing: 4px;
+text-transform: uppercase;
+}
+.preloader-bar-container {
+width: 250px;
+height: 3px;
+background: rgba(255,255,255,0.1);
+margin: 20px auto 0;
+border-radius: 3px;
+overflow: hidden;
+}
+.preloader-bar {
+height: 100%;
+width: 0%;
+background: var(--gradient-accent);
+border-radius: 3px;
+animation: loadBar 2s ease-in-out forwards;
+}
+@keyframes loadBar {
+0% { width: 0%; }
+50% { width: 70%; }
+100% { width: 100%; }
+}
+/* SCROLL ANIMATIONS */
+.reveal {
+opacity: 0;
+transform: translateY(60px);
+transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.active {
+opacity: 1;
+transform: translateY(0);
+}
+.reveal-left {
+opacity: 0;
+transform: translateX(-80px);
+transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-left.active {
+opacity: 1;
+transform: translateX(0);
+}
+.reveal-right {
+opacity: 0;
+transform: translateX(80px);
+transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-right.active {
+opacity: 1;
+transform: translateX(0);
+}
+.reveal-scale {
+opacity: 0;
+transform: scale(0.85);
+transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-scale.active {
+opacity: 1;
+transform: scale(1);
+}
+/* NAVIGATION */
+.navbar {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 9999;
+padding: 18px 0;
+transition: all 0.5s ease;
+background: transparent;
+}
+.navbar.scrolled {
+background: rgba(26, 26, 46, 0.97);
+backdrop-filter: blur(20px);
+padding: 12px 0;
+box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+.nav-container {
+max-width: 1300px;
+margin: 0 auto;
+padding: 0 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.nav-brand {
+display: flex;
+align-items: center;
+gap: 15px;
+text-decoration: none;
+}
+.nav-logo {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+object-fit: cover;
+border: 2px solid var(--gold);
+transition: transform 0.3s ease;
+}
+.nav-logo:hover {
+transform: rotate(10deg) scale(1.1);
+}
+.nav-brand-text {
+font-family: 'Playfair Display', serif;
+font-size: 1.3rem;
+font-weight: 700;
+color: var(--white);
+letter-spacing: 1px;
+}
+.nav-brand-text span {
+color: var(--gold);
+}
+.nav-links {
+display: flex;
+align-items: center;
+gap: 35px;
+list-style: none;
+}
+.nav-links a {
+text-decoration: none;
+color: var(--white);
+font-size: 0.9rem;
+font-weight: 500;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+position: relative;
+transition: color 0.3s ease;
+}
+.nav-links a::after {
+content: '';
+position: absolute;
+bottom: -6px;
+left: 0;
+width: 0;
+height: 2px;
+background: var(--gradient-accent);
+transition: width 0.4s ease;
+}
+.nav-links a:hover {
+color: var(--gold);
+}
+.nav-links a:hover::after {
+width: 100%;
+}
+.nav-cta {
+background: var(--gradient-gold) !important;
+color: var(--key-black) !important;
+padding: 10px 28px !important;
+border-radius: 50px !important;
+font-weight: 700 !important;
+letter-spacing: 1px !important;
+transition: all 0.4s ease !important;
+box-shadow: 0 4px 15px rgba(212,168,85,0.4);
+}
+.nav-cta:hover {
+transform: translateY(-2px) !important;
+box-shadow: 0 8px 25px rgba(212,168,85,0.6) !important;
+}
+.nav-cta::after {
+display: none !important;
+}
+.hamburger {
+display: none;
+flex-direction: column;
+gap: 5px;
+cursor: pointer;
+z-index: 10001;
+}
+.hamburger span {
+width: 28px;
+height: 2px;
+background: var(--white);
+transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) {
+transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+transform: rotate(-45deg) translate(5px, -5px);
+}
+/* HERO SECTION */
+.hero {
+min-height: 100vh;
+background: var(--gradient-primary);
+position: relative;
+display: flex;
+align-items: center;
+overflow: hidden;
+}
+.hero::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background:
+radial-gradient(ellipse at 20% 50%, rgba(0,188,212,0.08) 0%, transparent 60%),
+radial-gradient(ellipse at 80% 20%, rgba(233,30,99,0.06) 0%, transparent 60%),
+radial-gradient(ellipse at 60% 80%, rgba(255,193,7,0.05) 0%, transparent 60%);
+z-index: 1;
+}
+.hero-particles {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+overflow: hidden;
+}
+.particle {
+position: absolute;
+border-radius: 50%;
+animation: floatParticle linear infinite;
+opacity: 0.3;
+}
+@keyframes floatParticle {
+0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+10% { opacity: 0.3; }
+90% { opacity: 0.3; }
+100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+}
+.hero-container {
+max-width: 1300px;
+margin: 0 auto;
+padding: 0 40px;
+position: relative;
+z-index: 2;
+display: grid;
+grid-template-columns: 1.1fr 0.9fr;
+gap: 80px;
+align-items: center;
+width: 100%;
+}
+.hero-content {
+padding-top: 40px;
+}
+.hero-badge {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+background: rgba(212,168,85,0.15);
+border: 1px solid rgba(212,168,85,0.3);
+padding: 8px 22px;
+border-radius: 50px;
+margin-bottom: 30px;
+animation: fadeInDown 1s ease 0.3s both;
+}
+.hero-badge i {
+color: var(--gold);
+font-size: 0.85rem;
+}
+.hero-badge span {
+color: var(--gold);
+font-size: 0.8rem;
+font-weight: 600;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+@keyframes fadeInDown {
+from { opacity: 0; transform: translateY(-20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.hero-title {
+font-family: 'Playfair Display', serif;
+font-size: 3.8rem;
+font-weight: 800;
+color: var(--white);
+line-height: 1.15;
+margin-bottom: 25px;
+animation: fadeInUp 1s ease 0.5s both;
+}
+.hero-title .highlight {
+background: var(--gradient-accent);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.hero-title .gold {
+color: var(--gold);
+-webkit-text-fill-color: var(--gold);
+}
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(40px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.hero-description {
+font-size: 1.15rem;
+color: rgba(255,255,255,0.75);
+line-height: 1.85;
+margin-bottom: 40px;
+max-width: 540px;
+animation: fadeInUp 1s ease 0.7s both;
+}
+.hero-actions {
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+animation: fadeInUp 1s ease 0.9s both;
+}
+.btn-primary {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+background: var(--gradient-gold);
+color: var(--key-black);
+padding: 16px 38px;
+border-radius: 50px;
+text-decoration: none;
+font-weight: 700;
+font-size: 0.95rem;
+letter-spacing: 1px;
+text-transform: uppercase;
+transition: all 0.4s ease;
+box-shadow: 0 6px 25px rgba(212,168,85,0.4);
+border: none;
+cursor: pointer;
+}
+.btn-primary:hover {
+transform: translateY(-3px);
+box-shadow: 0 12px 35px rgba(212,168,85,0.6);
+}
+.btn-secondary {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+background: transparent;
+color: var(--white);
+padding: 16px 38px;
+border-radius: 50px;
+text-decoration: none;
+font-weight: 600;
+font-size: 0.95rem;
+letter-spacing: 1px;
+text-transform: uppercase;
+border: 2px solid rgba(255,255,255,0.3);
+transition: all 0.4s ease;
+cursor: pointer;
+}
+.btn-secondary:hover {
+border-color: var(--gold);
+color: var(--gold);
+background: rgba(212,168,85,0.05);
+transform: translateY(-3px);
+}
+.hero-visual {
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+animation: fadeInUp 1s ease 0.6s both;
+}
+.hero-image-wrapper {
+position: relative;
+width: 380px;
+height: 380px;
+}
+.hero-image-wrapper::before {
+content: '';
+position: absolute;
+top: -15px;
+left: -15px;
+right: -15px;
+bottom: -15px;
+border-radius: 50%;
+background: var(--gradient-accent);
+opacity: 0.15;
+animation: rotateBorder 8s linear infinite;
+}
+@keyframes rotateBorder {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+.hero-image-wrapper::after {
+content: '';
+position: absolute;
+top: -8px;
+left: -8px;
+right: -8px;
+bottom: -8px;
+border-radius: 50%;
+border: 2px solid rgba(212,168,85,0.3);
+animation: pulseRing 3s ease-in-out infinite;
+}
+@keyframes pulseRing {
+0%, 100% { transform: scale(1); opacity: 0.3; }
+50% { transform: scale(1.05); opacity: 0.6; }
+}
+.hero-portrait {
+width: 380px;
+height: 380px;
+border-radius: 50%;
+object-fit: cover;
+border: 4px solid var(--gold);
+position: relative;
+z-index: 2;
+box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.hero-floating-badge {
+position: absolute;
+background: rgba(26,26,46,0.95);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(212,168,85,0.3);
+border-radius: 15px;
+padding: 14px 20px;
+z-index: 3;
+animation: floatBadge 4s ease-in-out infinite;
+}
+.hero-floating-badge.badge-1 {
+top: 15%;
+right: -40px;
+animation-delay: 0s;
+}
+.hero-floating-badge.badge-2 {
+bottom: 15%;
+left: -40px;
+animation-delay: 2s;
+}
+.hero-floating-badge .badge-icon {
+font-size: 1.3rem;
+margin-bottom: 5px;
+}
+.hero-floating-badge .badge-text {
+color: var(--white);
+font-size: 0.75rem;
+font-weight: 600;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+.hero-floating-badge .badge-number {
+color: var(--gold);
+font-family: 'Playfair Display', serif;
+font-size: 1.5rem;
+font-weight: 700;
+}
+@keyframes floatBadge {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-12px); }
+}
+.hero-trust-bar {
+position: absolute;
+bottom: 40px;
+left: 0;
+width: 100%;
+z-index: 3;
+}
+.trust-container {
+max-width: 1300px;
+margin: 0 auto;
+padding: 0 40px;
+display: flex;
+align-items: center;
+gap: 50px;
+animation: fadeInUp 1s ease 1.2s both;
+}
+.trust-item {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.trust-icon {
+width: 42px;
+height: 42px;
+border-radius: 50%;
+background: rgba(212,168,85,0.15);
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--gold);
+font-size: 1rem;
+}
+.trust-text {
+color: rgba(255,255,255,0.7);
+font-size: 0.82rem;
+font-weight: 500;
+letter-spacing: 0.5px;
+}
+.trust-text strong {
+color: var(--white);
+display: block;
+font-size: 0.9rem;
+}
+/* SECTION STYLES */
+.section {
+padding: 120px 0;
+}
+.section-container {
+max-width: 1300px;
+margin: 0 auto;
+padding: 0 40px;
+}
+.section-header {
+text-align: center;
+max-width: 750px;
+margin: 0 auto 70px;
+}
+.section-label {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+font-size: 0.8rem;
+font-weight: 700;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 18px;
+}
+.section-label i {
+font-size: 0.7rem;
+}
+.section-title {
+font-family: 'Playfair Display', serif;
+font-size: 3rem;
+font-weight: 800;
+color: var(--text-dark);
+line-height: 1.2;
+margin-bottom: 20px;
+}
+.section-title .highlight {
+background: var(--gradient-accent);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.section-subtitle {
+font-size: 1.1rem;
+color: #666;
+line-height: 1.8;
+}
+.dark-section {
+background: var(--gradient-primary);
+}
+.dark-section .section-title {
+color: var(--white);
+}
+.dark-section .section-subtitle {
+color: rgba(255,255,255,0.65);
+}
+/* ABOUT SECTION */
+.about-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
+}
+.about-image-area {
+position: relative;
+}
+.about-image-main {
+width: 100%;
+max-width: 450px;
+height: 550px;
+object-fit: cover;
+border-radius: 20px;
+box-shadow: var(--shadow-heavy);
+border: 3px solid rgba(212,168,85,0.2);
+}
+.about-accent-box {
+position: absolute;
+bottom: -25px;
+right: -25px;
+background: var(--gradient-gold);
+padding: 28px 32px;
+border-radius: 15px;
+box-shadow: var(--shadow-medium);
+}
+.about-accent-box .accent-number {
+font-family: 'Playfair Display', serif;
+font-size: 2.5rem;
+font-weight: 800;
+color: var(--key-black);
+}
+.about-accent-box .accent-text {
+font-size: 0.85rem;
+font-weight: 600;
+color: var(--key-black);
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+.about-content .about-label {
+font-size: 0.8rem;
+font-weight: 700;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 18px;
+}
+.about-content .about-title {
+font-family: 'Playfair Display', serif;
+font-size: 2.8rem;
+font-weight: 800;
+color: var(--text-dark);
+line-height: 1.2;
+margin-bottom: 25px;
+}
+.about-content .about-description {
+font-size: 1.05rem;
+color: #555;
+line-height: 1.9;
+margin-bottom: 20px;
+}
+.about-values {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;
+margin-top: 35px;
+}
+.about-value-item {
+display: flex;
+align-items: flex-start;
+gap: 12px;
+padding: 15px;
+background: rgba(212,168,85,0.05);
+border-radius: 12px;
+border-left: 3px solid var(--gold);
+transition: all 0.3s ease;
+}
+.about-value-item:hover {
+background: rgba(212,168,85,0.1);
+transform: translateX(5px);
+}
+.about-value-item i {
+color: var(--gold);
+font-size: 1.1rem;
+margin-top: 3px;
+}
+.about-value-item strong {
+display: block;
+font-size: 0.95rem;
+color: var(--text-dark);
+margin-bottom: 3px;
+}
+.about-value-item span {
+font-size: 0.82rem;
+color: #777;
+line-height: 1.5;
+}
+/* SERVICES SECTION */
+.services-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 30px;
+}
+.service-card {
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 20px;
+padding: 45px 35px;
+text-align: center;
+transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+position: relative;
+overflow: hidden;
+}
+.service-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 3px;
+background: var(--gradient-accent);
+transform: scaleX(0);
+transition: transform 0.5s ease;
+}
+.service-card:hover::before {
+transform: scaleX(1);
+}
+.service-card:hover {
+background: rgba(255,255,255,0.1);
+transform: translateY(-10px);
+box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+border-color: rgba(212,168,85,0.3);
+}
+.service-icon {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+background: rgba(212,168,85,0.1);
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto 25px;
+font-size: 1.8rem;
+color: var(--gold);
+transition: all 0.5s ease;
+}
+.service-card:hover .service-icon {
+background: var(--gradient-gold);
+color: var(--key-black);
+transform: scale(1.1) rotate(5deg);
+}
+.service-card h3 {
+font-family: 'Playfair Display', serif;
+font-size: 1.35rem;
+color: var(--white);
+margin-bottom: 18px;
+font-weight: 700;
+}
+.service-card p {
+color: rgba(255,255,255,0.6);
+font-size: 0.92rem;
+line-height: 1.8;
+margin-bottom: 15px;
+}
+.service-features {
+list-style: none;
+text-align: left;
+padding-top: 15px;
+border-top: 1px solid rgba(255,255,255,0.08);
+}
+.service-features li {
+color: rgba(255,255,255,0.55);
+font-size: 0.85rem;
+padding: 6px 0;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.service-features li i {
+color: var(--gold);
+font-size: 0.7rem;
+}
+/* PROCESS SECTION */
+.process-timeline {
+position: relative;
+max-width: 900px;
+margin: 0 auto;
+}
+.process-timeline::before {
+content: '';
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 2px;
+height: 100%;
+background: linear-gradient(to bottom, var(--gold), rgba(212,168,85,0.1));
+}
+.process-step {
+display: flex;
+align-items: center;
+margin-bottom: 60px;
+position: relative;
+}
+.process-step:nth-child(odd) {
+flex-direction: row;
+}
+.process-step:nth-child(even) {
+flex-direction: row-reverse;
+}
+.process-step-content {
+width: 45%;
+background: var(--white);
+border-radius: 20px;
+padding: 35px;
+box-shadow: var(--shadow-light);
+border: 1px solid rgba(212,168,85,0.1);
+transition: all 0.4s ease;
+}
+.process-step-content:hover {
+transform: translateY(-5px);
+box-shadow: var(--shadow-medium);
+border-color: rgba(212,168,85,0.3);
+}
+.process-step-number {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+width: 55px;
+height: 55px;
+border-radius: 50%;
+background: var(--gradient-gold);
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Playfair Display', serif;
+font-size: 1.3rem;
+font-weight: 800;
+color: var(--key-black);
+box-shadow: 0 5px 20px rgba(212,168,85,0.4);
+z-index: 2;
+}
+.process-step-content h3 {
+font-family: 'Playfair Display', serif;
+font-size: 1.3rem;
+color: var(--text-dark);
+margin-bottom: 12px;
+}
+.process-step-content p {
+color: #666;
+font-size: 0.92rem;
+line-height: 1.75;
+}
+.process-step-icon {
+font-size: 1.8rem;
+margin-bottom: 12px;
+}
+/* FEATURED AUTHORS */
+.authors-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 40px;
+}
+.author-card {
+background: var(--white);
+border-radius: 24px;
+overflow: hidden;
+box-shadow: var(--shadow-light);
+transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+border: 1px solid rgba(212,168,85,0.08);
+}
+.author-card:hover {
+transform: translateY(-12px);
+box-shadow: var(--shadow-heavy);
+border-color: rgba(212,168,85,0.3);
+}
+.author-card-header {
+background: var(--gradient-primary);
+padding: 40px 30px 50px;
+text-align: center;
+position: relative;
+}
+.author-card-header::after {
+content: '';
+position: absolute;
+bottom: -20px;
+left: 50%;
+transform: translateX(-50%);
+width: 40px;
+height: 40px;
+background: var(--white);
+border-radius: 50%;
+}
+.author-portrait-wrapper {
+position: relative;
+display: inline-block;
+cursor: pointer;
+}
+.author-portrait {
+width: 130px;
+height: 130px;
+object-fit: cover;
+border: 4px solid var(--gold);
+transition: all 0.4s ease;
+/* RECTANGLE/SQUARE shape as requested */
+border-radius: 12px;
+}
+.author-portrait:hover {
+transform: scale(1.08);
+box-shadow: 0 10px 30px rgba(212,168,85,0.5);
+}
+.author-card-body {
+padding: 35px 30px 30px;
+text-align: center;
+}
+.author-name {
+font-family: 'Playfair Display', serif;
+font-size: 1.5rem;
+font-weight: 700;
+color: var(--text-dark);
+margin-bottom: 8px;
+}
+.author-email {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+color: var(--royal-blue);
+font-size: 0.82rem;
+font-weight: 500;
+margin-bottom: 20px;
+text-decoration: none;
+transition: color 0.3s ease;
+word-break: break-all;
+}
+.author-email:hover {
+color: var(--gold);
+}
+.author-book-section {
+margin-top: 10px;
+}
+.author-book-label {
+font-size: 0.75rem;
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 15px;
+}
+.author-book-link {
+display: inline-block;
+position: relative;
+cursor: pointer;
+transition: transform 0.4s ease;
+}
+.author-book-link:hover {
+transform: scale(1.1);
+}
+.author-book-image {
+width: 140px;
+height: 140px;
+/* CIRCLE shape as requested */
+border-radius: 50%;
+object-fit: cover;
+border: 3px solid var(--gold);
+box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+transition: all 0.4s ease;
+}
+.author-book-link:hover .author-book-image {
+box-shadow: 0 15px 40px rgba(212,168,85,0.4);
+}
+.amazon-badge {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+margin-top: 15px;
+padding: 8px 20px;
+background: #ff9900;
+color: var(--key-black);
+border-radius: 50px;
+text-decoration: none;
+font-weight: 700;
+font-size: 0.8rem;
+letter-spacing: 0.5px;
+transition: all 0.3s ease;
+box-shadow: 0 4px 15px rgba(255,153,0,0.3);
+}
+.amazon-badge:hover {
+background: #e68a00;
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(255,153,0,0.5);
+}
+.amazon-badge img {
+width: 18px;
+height: 18px;
+}
+.author-testimonial {
+margin-top: 20px;
+padding-top: 20px;
+border-top: 1px solid rgba(212,168,85,0.15);
+}
+.author-testimonial p {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.05rem;
+font-style: italic;
+color: #555;
+line-height: 1.7;
+}
+.author-testimonial .stars {
+color: var(--accent-yellow);
+font-size: 0.85rem;
+margin-bottom: 10px;
+}
+/* WHY CHOOSE US */
+.why-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 30px;
+}
+.why-card {
+text-align: center;
+padding: 40px 25px;
+background: var(--white);
+border-radius: 20px;
+box-shadow: var(--shadow-light);
+border: 1px solid rgba(212,168,85,0.05);
+transition: all 0.5s ease;
+position: relative;
+overflow: hidden;
+}
+.why-card::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 3px;
+background: var(--gradient-accent);
+transform: scaleX(0);
+transition: transform 0.5s ease;
+}
+.why-card:hover::after {
+transform: scaleX(1);
+}
+.why-card:hover {
+transform: translateY(-8px);
+box-shadow: var(--shadow-medium);
+}
+.why-icon {
+width: 70px;
+height: 70px;
+border-radius: 50%;
+background: rgba(212,168,85,0.1);
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto 20px;
+font-size: 1.5rem;
+color: var(--gold);
+transition: all 0.4s ease;
+}
+.why-card:hover .why-icon {
+background: var(--gradient-gold);
+color: var(--key-black);
+transform: scale(1.1);
+}
+.why-card h3 {
+font-family: 'Playfair Display', serif;
+font-size: 1.15rem;
+color: var(--text-dark);
+margin-bottom: 12px;
+}
+.why-card p {
+color: #666;
+font-size: 0.88rem;
+line-height: 1.7;
+}
+/* STATS SECTION */
+.stats-section {
+background: var(--gradient-primary);
+padding: 80px 0;
+position: relative;
+overflow: hidden;
+}
+.stats-section::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background:
+radial-gradient(ellipse at 30% 50%, rgba(0,188,212,0.1) 0%, transparent 60%),
+radial-gradient(ellipse at 70% 50%, rgba(233,30,99,0.08) 0%, transparent 60%);
+}
+.stats-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 40px;
+position: relative;
+z-index: 1;
+}
+.stat-item {
+text-align: center;
+}
+.stat-number {
+font-family: 'Playfair Display', serif;
+font-size: 3.5rem;
+font-weight: 800;
+background: var(--gradient-gold);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 8px;
+}
+.stat-label {
+color: rgba(255,255,255,0.7);
+font-size: 0.9rem;
+font-weight: 500;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+/* CEO SPOTLIGHT */
+.ceo-section {
+background: linear-gradient(135deg, #faf8f5 0%, #f5f0e8 100%);
+}
+.ceo-grid {
+display: grid;
+grid-template-columns: 1fr 1.2fr;
+gap: 80px;
+align-items: center;
+}
+.ceo-image-area {
+position: relative;
+text-align: center;
+}
+.ceo-portrait {
+width: 350px;
+height: 420px;
+object-fit: cover;
+border-radius: 20px;
+box-shadow: var(--shadow-heavy);
+border: 3px solid rgba(212,168,85,0.3);
+}
+.ceo-content .ceo-label {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+font-size: 0.8rem;
+font-weight: 700;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(--gold);
+margin-bottom: 18px;
+}
+.ceo-content h2 {
+font-family: 'Playfair Display', serif;
+font-size: 2.5rem;
+font-weight: 800;
+color: var(--text-dark);
+margin-bottom: 15px;
+}
+.ceo-content .ceo-title-role {
+font-size: 1rem;
+color: var(--gold);
+font-weight: 600;
+letter-spacing: 1px;
+margin-bottom: 25px;
+}
+.ceo-content p {
+font-size: 1.05rem;
+color: #555;
+line-height: 1.9;
+margin-bottom: 18px;
+}
+.ceo-signature {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.8rem;
+font-style: italic;
+color: var(--gold);
+margin-top: 25px;
+}
+.ceo-contact-info {
+margin-top: 25px;
+display: flex;
+align-items: center;
+gap: 20px;
+flex-wrap: wrap;
+}
+.ceo-contact-item {
+display: flex;
+align-items: center;
+gap: 10px;
+color: #555;
+font-size: 0.9rem;
+}
+.ceo-contact-item i {
+color: var(--gold);
+}
+.ceo-contact-item a {
+color: #555;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+.ceo-contact-item a:hover {
+color: var(--gold);
+}
+/* CONTACT SECTION */
+.contact-grid {
+display: grid;
+grid-template-columns: 1fr 1.2fr;
+gap: 60px;
+align-items: start;
+}
+.contact-info-panel {
+background: var(--gradient-primary);
+border-radius: 24px;
+padding: 50px 40px;
+color: var(--white);
+}
+.contact-info-panel h3 {
+font-family: 'Playfair Display', serif;
+font-size: 1.8rem;
+margin-bottom: 20px;
+}
+.contact-info-panel > p {
+color: rgba(255,255,255,0.65);
+line-height: 1.8;
+margin-bottom: 35px;
+font-size: 0.95rem;
+}
+.contact-detail {
+display: flex;
+align-items: flex-start;
+gap: 15px;
+margin-bottom: 25px;
+}
+.contact-detail-icon {
+width: 48px;
+height: 48px;
+min-width: 48px;
+border-radius: 50%;
+background: rgba(212,168,85,0.15);
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--gold);
+font-size: 1rem;
+}
+.contact-detail-text strong {
+display: block;
+font-size: 0.95rem;
+margin-bottom: 4px;
+}
+.contact-detail-text span,
+.contact-detail-text a {
+color: rgba(255,255,255,0.6);
+font-size: 0.88rem;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+.contact-detail-text a:hover {
+color: var(--gold);
+}
+.contact-ceo-photo {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+object-fit: cover;
+border: 3px solid var(--gold);
+margin-top: 30px;
+}
+.contact-form-panel {
+background: var(--white);
+border-radius: 24px;
+padding: 50px 40px;
+box-shadow: var(--shadow-medium);
+border: 1px solid rgba(212,168,85,0.1);
+}
+.contact-form-panel h3 {
+font-family: 'Playfair Display', serif;
+font-size: 1.8rem;
+color: var(--text-dark);
+margin-bottom: 8px;
+}
+.contact-form-panel > p {
+color: #777;
+font-size: 0.9rem;
+margin-bottom: 30px;
+}
+.form-group {
+margin-bottom: 22px;
+}
+.form-group label {
+display: block;
+font-size: 0.85rem;
+font-weight: 600;
+color: var(--text-dark);
+margin-bottom: 8px;
+letter-spacing: 0.5px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+width: 100%;
+padding: 14px 18px;
+border: 2px solid #e8e4df;
+border-radius: 12px;
+font-family: 'Inter', sans-serif;
+font-size: 0.92rem;
+color: var(--text-dark);
+background: #faf8f5;
+transition: all 0.3s ease;
+outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+border-color: var(--gold);
+box-shadow: 0 0 0 4px rgba(212,168,85,0.1);
+background: var(--white);
+}
+.form-group textarea {
+resize: vertical;
+min-height: 130px;
+}
+.form-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 18px;
+}
+.form-submit {
+width: 100%;
+padding: 16px;
+background: var(--gradient-gold);
+color: var(--key-black);
+border: none;
+border-radius: 12px;
+font-family: 'Inter', sans-serif;
+font-size: 1rem;
+font-weight: 700;
+letter-spacing: 1px;
+text-transform: uppercase;
+cursor: pointer;
+transition: all 0.4s ease;
+box-shadow: 0 6px 25px rgba(212,168,85,0.3);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+}
+.form-submit:hover {
+transform: translateY(-3px);
+box-shadow: 0 12px 35px rgba(212,168,85,0.5);
+}
+/* GUARANTEE SECTION */
+.guarantee-section {
+background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
+text-align: center;
+}
+.guarantee-box {
+max-width: 800px;
+margin: 0 auto;
+background: var(--white);
+border-radius: 24px;
+padding: 60px 50px;
+box-shadow: var(--shadow-medium);
+border: 2px solid rgba(212,168,85,0.15);
+position: relative;
+overflow: hidden;
+}
+.guarantee-box::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 4px;
+background: var(--gradient-accent);
+}
+.guarantee-icon {
+font-size: 3rem;
+color: var(--gold);
+margin-bottom: 25px;
+}
+.guarantee-box h2 {
+font-family: 'Playfair Display', serif;
+font-size: 2rem;
+color: var(--text-dark);
+margin-bottom: 20px;
+}
+.guarantee-box p {
+color: #555;
+font-size: 1.05rem;
+line-height: 1.85;
+margin-bottom: 15px;
+}
+/* FOOTER */
+.footer {
+background: var(--key-black);
+color: var(--white);
+padding: 80px 0 0;
+}
+.footer-grid {
+display: grid;
+grid-template-columns: 1.5fr 1fr 1fr 1fr;
+gap: 50px;
+margin-bottom: 60px;
+}
+.footer-brand-logo {
+width: 60px;
+height: 60px;
+border-radius: 50%;
+object-fit: cover;
+border: 2px solid var(--gold);
+margin-bottom: 20px;
+}
+.footer-brand h3 {
+font-family: 'Playfair Display', serif;
+font-size: 1.5rem;
+margin-bottom: 15px;
+}
+.footer-brand h3 span {
+color: var(--gold);
+}
+.footer-brand p {
+color: rgba(255,255,255,0.5);
+font-size: 0.9rem;
+line-height: 1.8;
+margin-bottom: 20px;
+}
+.footer-social {
+display: flex;
+gap: 12px;
+}
+.footer-social a {
+width: 42px;
+height: 42px;
+border-radius: 50%;
+background: rgba(255,255,255,0.08);
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--white);
+font-size: 0.9rem;
+transition: all 0.3s ease;
+text-decoration: none;
+}
+.footer-social a:hover {
+background: var(--gold);
+color: var(--key-black);
+transform: translateY(-3px);
+}
+.footer-column h4 {
+font-family: 'Playfair Display', serif;
+font-size: 1.1rem;
+margin-bottom: 22px;
+color: var(--gold);
+}
+.footer-column ul {
+list-style: none;
+}
+.footer-column ul li {
+margin-bottom: 12px;
+}
+.footer-column ul li a {
+color: rgba(255,255,255,0.5);
+text-decoration: none;
+font-size: 0.88rem;
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.footer-column ul li a:hover {
+color: var(--gold);
+transform: translateX(5px);
+}
+.footer-column ul li a i {
+font-size: 0.6rem;
+color: var(--gold);
+}
+.footer-bottom {
+border-top: 1px solid rgba(255,255,255,0.08);
+padding: 25px 0;
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 15px;
+}
+.footer-bottom p {
+color: rgba(255,255,255,0.4);
+font-size: 0.82rem;
+}
+.footer-bottom-links {
+display: flex;
+gap: 25px;
+}
+.footer-bottom-links a {
+color: rgba(255,255,255,0.4);
+text-decoration: none;
+font-size: 0.82rem;
+transition: color 0.3s ease;
+}
+.footer-bottom-links a:hover {
+color: var(--gold);
+}
+/* SCROLL TO TOP */
+.scroll-top {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: var(--gradient-gold);
+color: var(--key-black);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.2rem;
+cursor: pointer;
+z-index: 9998;
+opacity: 0;
+visibility: hidden;
+transition: all 0.4s ease;
+box-shadow: 0 5px 20px rgba(212,168,85,0.4);
+border: none;
+}
+.scroll-top.visible {
+opacity: 1;
+visibility: visible;
+}
+.scroll-top:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 30px rgba(212,168,85,0.6);
+}
+/* CUSTOM CURSOR TRAIL */
+.cursor-glow {
+position: fixed;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(212,168,85,0.3), transparent 70%);
+pointer-events: none;
+z-index: 99998;
+transition: transform 0.15s ease;
+mix-blend-mode: screen;
+}
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+.hero-container {
+grid-template-columns: 1fr;
+text-align: center;
+gap: 40px;
+}
+.hero-title {
+font-size: 3rem;
+}
+.hero-description {
+margin: 0 auto 30px;
+}
+.hero-actions {
+justify-content: center;
+}
+.hero-image-wrapper {
+width: 280px;
+height: 280px;
+}
+.hero-portrait {
+width: 280px;
+height: 280px;
+}
+.hero-floating-badge {
+display: none;
+}
+.trust-container {
+flex-wrap: wrap;
+justify-content: center;
+gap: 25px;
+}
+.about-grid,
+.ceo-grid,
+.contact-grid {
+grid-template-columns: 1fr;
+gap: 40px;
+text-align: center;
+}
+.about-image-main,
+.ceo-portrait {
+max-width: 100%;
+height: 400px;
+}
+.about-values {
+grid-template-columns: 1fr;
+}
+.services-grid {
+grid-template-columns: 1fr 1fr;
+}
+.authors-grid {
+grid-template-columns: 1fr 1fr;
+}
+.why-grid {
+grid-template-columns: 1fr 1fr;
+}
+.stats-grid {
+grid-template-columns: 1fr 1fr;
+gap: 30px;
+}
+.footer-grid {
+grid-template-columns: 1fr 1fr;
+}
+}
+@media (max-width: 768px) {
+.navbar {
+padding: 14px 0;
+}
+.nav-links {
+position: fixed;
+top: 0;
+right: -100%;
+width: 75%;
+height: 100vh;
+background: rgba(26,26,46,0.98);
+backdrop-filter: blur(20px);
+flex-direction: column;
+justify-content: center;
+gap: 30px;
+transition: right 0.4s ease;
+box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+}
+.nav-links.active {
+right: 0;
+}
+.hamburger {
+display: flex;
+}
+.hero-title {
+font-size: 2.2rem;
+}
+.section-title {
+font-size: 2.2rem;
+}
+.services-grid,
+.authors-grid {
+grid-template-columns: 1fr;
+}
+.why-grid {
+grid-template-columns: 1fr;
+}
+.stats-grid {
+grid-template-columns: 1fr 1fr;
+}
+.process-timeline::before {
+left: 25px;
+}
+.process-step {
+flex-direction: row !important;
+padding-left: 70px;
+}
+.process-step-content {
+width: 100%;
+}
+.process-step-number {
+left: 25px;
+transform: translateX(-50%);
+}
+.form-row {
+grid-template-columns: 1fr;
+}
+.footer-grid {
+grid-template-columns: 1fr;
+}
+.footer-bottom {
+flex-direction: column;
+text-align: center;
+}
+.contact-info-panel,
+.contact-form-panel {
+padding: 35px 25px;
+}
+.guarantee-box {
+padding: 40px 25px;
+}
+.hero-content {
+padding-top: 80px;
+}
+.about-accent-box {
+position: relative;
+bottom: auto;
+right: auto;
+display: inline-block;
+margin-top: 20px;
+}
+.ceo-contact-info {
+justify-content: center;
+}
+}
+@media (max-width: 480px) {
+.hero-title {
+font-size: 1.8rem;
+}
+.section-title {
+font-size: 1.8rem;
+}
+.hero-image-wrapper {
+width: 220px;
+height: 220px;
+}
+.hero-portrait {
+width: 220px;
+height: 220px;
+}
+.section {
+padding: 80px 0;
+}
+.section-container {
+padding: 0 20px;
+}
+.nav-container {
+padding: 0 20px;
+}
+.stat-number {
+font-size: 2.5rem;
+}
+}
+/* ADDITIONAL ANIMATIONS */
+@keyframes shimmer {
+0% { background-position: -200% 0; }
+100% { background-position: 200% 0; }
+}
+.gold-shimmer {
+background: linear-gradient(90deg, var(--gold) 0%, #f0d48a 25%, var(--gold) 50%, #f0d48a 75%, var(--gold) 100%);
+background-size: 200% 100%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+animation: shimmer 4s linear infinite;
+}
+/* Typed cursor effect */
+.typed-cursor {
+display: inline-block;
+width: 3px;
+height: 1em;
+background: var(--gold);
+margin-left: 5px;
+animation: blink 0.8s infinite;
+vertical-align: text-bottom;
+}
+@keyframes blink {
+0%, 100% { opacity: 1; }
+50% { opacity: 0; }
+}
+/* Divider line */
+.section-divider {
+width: 60px;
+height: 3px;
+background: var(--gradient-accent);
+margin: 0 auto 25px;
+border-radius: 3px;
+}
+.text-left .section-divider {
+margin: 0 0 25px;
+}
+/* Floating animation for trust badges */
+@keyframes gentleFloat {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-5px); }
+}
+.trust-item {
+animation: gentleFloat 3s ease-in-out infinite;
+}
+.trust-item:nth-child(2) { animation-delay: 0.5s; }
+.trust-item:nth-child(3) { animation-delay: 1s; }
+.trust-item:nth-child(4) { animation-delay: 1.5s; }
+</style>
+</head>
+<body>
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+<div class="preloader-content">
+<img src="Nielpublishingltd1.png" alt="Niel Publishing Ltd" class="preloader-logo">
+<div class="preloader-text">Niel Publishing Ltd</div>
+<div class="preloader-bar-container">
+<div class="preloader-bar"></div>
+</div>
+</div>
+</div>
+<!-- CURSOR GLOW -->
+<div class="cursor-glow" id="cursorGlow"></div>
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+<div class="nav-container">
+<a href="#hero" class="nav-brand">
+<img src="Nielpublishingltd1.png" alt="Niel Publishing Logo" class="nav-logo">
+<span class="nav-brand-text">Niel <span>Publishing</span></span>
+</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#authors">Authors</a></li>
+<li><a href="#ceo">Leadership</a></li>
+<li><a href="#contact" class="nav-cta">Get Started</a></li>
+</ul>
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</nav>
+<!-- HERO SECTION -->
+<section class="hero" id="hero">
+<div class="hero-particles" id="heroParticles"></div>
+<div class="hero-container">
+<div class="hero-content">
+<div class="hero-badge">
+<i class="fas fa-crown"></i>
+<span>Premium Author Services</span>
+</div>
+<h1 class="hero-title">
+Your Story Deserves<br>
+To Be <span class="highlight">Seen, Heard</span><br>
+& <span class="gold">Celebrated</span>
+</h1>
+<p class="hero-description">
+At Niel Publishing Ltd, we don't just market books. We architect author legacies. Every manuscript carries a voice that the world needs to hear. We ensure that voice reaches the right readers, the right editors, and the right publishers through precision-driven marketing strategy, editorial intelligence, and relentless brand positioning.
+</p>
+<div class="hero-actions">
+<a href="#contact" class="btn-primary">
+<i class="fas fa-envelope"></i> Start Your Journey
+</a>
+<a href="#services" class="btn-secondary">
+<i class="fas fa-compass"></i> Explore Services
+</a>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-image-wrapper">
+<img src="Nielpublishingltd1.png" alt="Anthony Nathaniel - CEO Niel Publishing" class="hero-portrait">
+<div class="hero-floating-badge badge-1">
+<div class="badge-icon">📚</div>
+<div class="badge-number">150+</div>
+<div class="badge-text">Authors Served</div>
+</div>
+<div class="hero-floating-badge badge-2">
+<div class="badge-icon">⭐</div>
+<div class="badge-number">98%</div>
+<div class="badge-text">Satisfaction Rate</div>
+</div>
+</div>
+</div>
+</div>
+<div class="hero-trust-bar">
+<div class="trust-container">
+<div class="trust-item">
+<div class="trust-icon"><i class="fas fa-shield-alt"></i></div>
+<div class="trust-text">
+<strong>Verified & Trusted</strong>
+Industry Certified
+</div>
+</div>
+<div class="trust-item">
+<div class="trust-icon"><i class="fas fa-envelope"></i></div>
+<div class="trust-text">
+<strong>All Via Email</strong>
+Documented & Accountable
+</div>
+</div>
+<div class="trust-item">
+<div class="trust-icon"><i class="fas fa-handshake"></i></div>
+<div class="trust-text">
+<strong>1-on-1 Dedication</strong>
+Personalized Approach
+</div>
+</div>
+<div class="trust-item">
+<div class="trust-icon"><i class="fas fa-lock"></i></div>
+<div class="trust-text">
+<strong>Confidential</strong>
+Your Work Is Safe
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT SECTION -->
+<section class="section" id="about">
+<div class="section-container">
+<div class="about-grid">
+<div class="about-image-area reveal-left">
+<img src="Nielpublishingltd1.png" alt="Anthony Nathaniel - Niel Publishing" class="about-image-main">
+<div class="about-accent-box">
+<div class="accent-number">5+</div>
+<div class="accent-text">Years of Excellence</div>
+</div>
+</div>
+<div class="about-content reveal-right">
+<div class="about-label"><i class="fas fa-star"></i> About Niel Publishing Ltd</div>
+<h2 class="about-title">We Don't Just Market Books. We Build Author Legacies.</h2>
+<p class="about-description">
+Niel Publishing Ltd was founded with a single, unwavering conviction: every author deserves to be treated not as a transaction, but as a visionary. We recognized a fundamental gap in the publishing landscape. Talented writers with extraordinary stories were being overlooked, underserved, and left to navigate a labyrinthine industry without a strategic partner who truly understood their ambition.
+</p>
+<p class="about-description">
+We changed that. Under the leadership of Anthony Nathaniel, a Marketing Lead Specialist with deep expertise in author brand positioning, market penetration, and editorial strategy, Niel Publishing Ltd has become the trusted partner for authors across genres who refuse to let their work remain invisible.
+</p>
+<p class="about-description">
+Our methodology is meticulous. Every engagement begins with understanding the author's unique voice, their target readership, and the specific market dynamics of their genre. From there, we construct a bespoke strategy that encompasses editorial refinement, publisher and editor outreach, title optimization, metadata strategy, and sustained marketing campaigns designed to generate real, measurable impact.
+</p>
+<div class="about-values">
+<div class="about-value-item">
+<i class="fas fa-check-circle"></i>
+<div>
+<strong>Integrity First</strong>
+<span>Every interaction is honest, transparent, and documented via email for complete accountability.</span>
+</div>
+</div>
+<div class="about-value-item">
+<i class="fas fa-check-circle"></i>
+<div>
+<strong>Author-Centric</strong>
+<span>Your vision drives every strategy. We listen before we act, and we act with precision.</span>
+</div>
+</div>
+<div class="about-value-item">
+<i class="fas fa-check-circle"></i>
+<div>
+<strong>Results-Driven</strong>
+<span>We measure success not by activity, but by outcomes. More visibility, more engagement, more recognition.</span>
+</div>
+</div>
+<div class="about-value-item">
+<i class="fas fa-check-circle"></i>
+<div>
+<strong>Confidential & Secure</strong>
+<span>Your manuscripts and personal data are handled with the highest standard of professional discretion.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- STATS SECTION -->
+<div class="stats-section">
+<div class="section-container">
+<div class="stats-grid">
+<div class="stat-item reveal">
+<div class="stat-number" data-target="150">0</div>
+<div class="stat-label">Authors Partnered</div>
+</div>
+<div class="stat-item reveal">
+<div class="stat-number" data-target="300">0</div>
+<div class="stat-label">Titles Marketed</div>
+</div>
+<div class="stat-item reveal">
+<div class="stat-number" data-target="98">0</div>
+<div class="stat-label">% Satisfaction</div>
+</div>
+<div class="stat-item reveal">
+<div class="stat-number" data-target="45">0</div>
+<div class="stat-label">Industry Partners</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SERVICES SECTION -->
+<section class="section dark-section" id="services">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-cogs"></i> Our Expertise</div>
+<div class="section-divider"></div>
+<h2 class="section-title">Comprehensive Author <span class="highlight">Elevation Services</span></h2>
+<p class="section-subtitle">
+Every service we offer has been engineered with one goal in mind: to take your work from where it is now to where it deserves to be. These are not generic offerings. Each service is customized to your specific genre, goals, readership, and market positioning requirements.
+</p>
+</div>
+<div class="services-grid">
+<div class="service-card reveal">
+<div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+<h3>Strategic Book Marketing & Brand Positioning</h3>
+<p>
+We develop comprehensive, data-driven marketing campaigns that position your book in front of the exact audience most likely to engage with your work. This includes digital visibility strategy, social media amplification, email marketing architecture, and targeted outreach to influential reviewers and literary communities.
+</p>
+<ul class="service-features">
+<li><i class="fas fa-gem"></i> Custom Marketing Blueprint</li>
+<li><i class="fas fa-gem"></i> Audience Segmentation & Targeting</li>
+<li><i class="fas fa-gem"></i> Pre-Launch & Post-Launch Campaigns</li>
+<li><i class="fas fa-gem"></i> Cross-Platform Visibility Strategy</li>
+<li><i class="fas fa-gem"></i> Competitive Genre Analysis</li>
+</ul>
+</div>
+<div class="service-card reveal">
+<div class="service-icon"><i class="fas fa-pen-fancy"></i></div>
+<h3>Editorial Consulting & Manuscript Refinement</h3>
+<p>
+Our editorial consulting goes beyond basic proofreading. We provide structural analysis, narrative pacing evaluation, character arc assessment, and market-readiness scoring. We connect you with professional editors whose expertise aligns perfectly with your genre and style.
+</p>
+<ul class="service-features">
+<li><i class="fas fa-gem"></i> Developmental Editing Guidance</li>
+<li><i class="fas fa-gem"></i> Structural & Narrative Analysis</li>
+<li><i class="fas fa-gem"></i> Editor Matching & Introduction</li>
+<li><i class="fas fa-gem"></i> Market-Readiness Assessment</li>
+<li><i class="fas fa-gem"></i> Genre-Specific Feedback Reports</li>
+</ul>
+</div>
+<div class="service-card reveal">
+<div class="service-icon"><i class="fas fa-handshake"></i></div>
+<h3>Publisher & Editor Engagement Strategy</h3>
+<p>
+We open doors that would otherwise remain closed. Our established network of publishers, literary agents, and senior editors across multiple genres enables us to facilitate strategic introductions, pitch optimization, and submission strategy that significantly increases your chances of securing the right publishing partnership.
+</p>
+<ul class="service-features">
+<li><i class="fas fa-gem"></i> Publisher & Agent Research</li>
+<li><i class="fas fa-gem"></i> Query Letter & Pitch Optimization</li>
+<li><i class="fas fa-gem"></i> Submission Calendar Management</li>
+<li><i class="fas fa-gem"></i> Strategic Introduction Facilitation</li>
+<li><i class="fas fa-gem"></i> Contract Review Guidance</li>
+</ul>
+</div>
+<div class="service-card reveal">
+<div class="service-icon"><i class="fas fa-heading"></i></div>
+<h3>Title Optimization & Metadata Strategy</h3>
+<p>
+Your title is your first impression. Your metadata determines whether your book appears in search results. We analyze market trends, competitor titles, keyword density, and reader psychology to craft titles and metadata that maximize discoverability and click-through rates on every major platform.
+</p>
+<ul class="service-features">
+<li><i class="fas fa-gem"></i> Title A/B Testing & Selection</li>
+<li><i class="fas fa-gem"></i> Keyword Research & Integration</li>
+<li><i class="fas fa-gem"></i> Category & Genre Optimization</li>
+<li><i class="fas fa-gem"></i> Book Description Copywriting</li>
+<li><i class="fas fa-gem"></i> SEO-Driven Metadata Architecture</li>
+</ul>
+</div>
+<div class="service-card reveal">
+<div class="service-icon"><i class="fas fa-user-tie"></i></div>
+<h3>Author Brand Development & Identity Design</h3>
+<p>
+You are more than a writer. You are a brand. We develop comprehensive author brand identities that create recognition, trust, and loyalty among your readership. From your professional author bio and media kit to your visual identity and public positioning statement, we build the ecosystem around your authorship.
+</p>
+<ul class="service-features">
+<li><i class="fas fa-gem"></i> Professional Author Bio Crafting</li>
+<li><i class="fas fa-gem"></i> Media Kit Development</li>
+<li><i class="fas fa-gem"></i> Visual Brand Identity Guidelines</li>
+<li><i class="fas fa-gem"></i> Author Platform Strategy</li>
+<li><i class="fas fa-gem"></i> Public Speaking & Event Positioning</li>
+</ul>
+</div>
+<div class="service-card reveal">
+<div class="service-icon"><i class="fas fa-chart-line"></i></div>
+<h3>Market Intelligence & Genre Analytics</h3>
+<p>
+Understanding your market is not optional. It is essential. We provide comprehensive genre analysis, competitor benchmarking, reader trend forecasting, and market positioning reports that inform every decision from cover design to launch timing to long-term career strategy.
+</p>
+<ul class="service-features">
+<li><i class="fas fa-gem"></i> Genre Trend Analysis Reports</li>
+<li><i class="fas fa-gem"></i> Competitor Landscape Mapping</li>
+<li><i class="fas fa-gem"></i> Reader Demographics & Behavior</li>
+<li><i class="fas fa-gem"></i> Pricing Strategy Recommendations</li>
+<li><i class="fas fa-gem"></i> Quarterly Market Intelligence Briefs</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- PROCESS SECTION -->
+<section class="section" id="process">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-route"></i> How We Work</div>
+<div class="section-divider"></div>
+<h2 class="section-title">Your Journey From <span class="highlight">Manuscript to Market</span></h2>
+<p class="section-subtitle">
+Our process is intentional, transparent, and entirely managed through email to ensure complete documentation, accountability, and a clear record of every decision, recommendation, and milestone achieved throughout our partnership.
+</p>
+</div>
+<div class="process-timeline">
+<div class="process-step reveal-left">
+<div class="process-step-content">
+<div class="process-step-icon">📩</div>
+<h3>Initial Inquiry & Discovery</h3>
+<p>
+Your journey begins with a single email. Reach out to us at nielpublishingltd@gmail.com with details about your book, your goals, and your vision. We review every inquiry personally and respond with a thoughtful, detailed assessment of how we can serve your unique needs. No automated responses. No generic templates. Every reply is crafted specifically for you.
+</p>
+</div>
+<div class="process-step-number">1</div>
+</div>
+<div class="process-step reveal-right">
+<div class="process-step-content">
+<div class="process-step-icon">🔍</div>
+<h3>Deep Assessment & Strategy Design</h3>
+<p>
+Once we understand your manuscript, genre, target readership, and career objectives, we conduct a comprehensive analysis. This includes genre market research, competitor evaluation, readership profiling, and a thorough review of your current positioning. The result is a detailed, personalized strategy document delivered to your inbox outlining every recommended action, timeline, and expected outcome.
+</p>
+</div>
+<div class="process-step-number">2</div>
+</div>
+<div class="process-step reveal-left">
+<div class="process-step-content">
+<div class="process-step-icon">⚡</div>
+<h3>Execution & Active Campaign Management</h3>
+<p>
+With your approval, we move into execution. Every action we take on your behalf, whether it is outreach to a publisher, optimization of your metadata, development of a marketing campaign, or coordination with an editor, is communicated to you via email in real-time. You are never left guessing. Every update, every result, every decision point is documented and shared with you.
+</p>
+</div>
+<div class="process-step-number">3</div>
+</div>
+<div class="process-step reveal-right">
+<div class="process-step-content">
+<div class="process-step-icon">📊</div>
+<h3>Performance Reporting & Ongoing Optimization</h3>
+<p>
+We provide detailed performance reports at regular intervals, delivered directly to your email. These reports include engagement metrics, outreach results, market response analysis, and strategic recommendations for the next phase. Our commitment to you doesn't end at launch. We refine, adjust, and optimize continuously to ensure sustained growth and visibility for your work.
+</p>
+</div>
+<div class="process-step-number">4</div>
+</div>
+<div class="process-step reveal-left">
+<div class="process-step-content">
+<div class="process-step-icon">🏆</div>
+<h3>Legacy Building & Long-Term Partnership</h3>
+<p>
+Our most successful partnerships are long-term. Once your initial campaign delivers results, we work with you to build a sustainable author brand that grows with every subsequent title. We become your trusted marketing partner, your strategic advisor, and your advocate in the publishing industry for years to come.
+</p>
+</div>
+<div class="process-step-number">5</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHY CHOOSE US SECTION -->
+<section class="section" style="background: linear-gradient(135deg, #faf8f5, #f5f0e8);">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-award"></i> Why Niel Publishing</div>
+<div class="section-divider"></div>
+<h2 class="section-title">What Sets Us <span class="highlight">Fundamentally Apart</span></h2>
+<p class="section-subtitle">
+In an industry overcrowded with empty promises and one-size-fits-all approaches, we have built our reputation on specificity, accountability, and results that authors can see and measure.
+</p>
+</div>
+<div class="why-grid">
+<div class="why-card reveal">
+<div class="why-icon"><i class="fas fa-envelope-open-text"></i></div>
+<h3>100% Email-Based Communication</h3>
+<p>Every conversation, every update, every deliverable is handled through email. This means you have a complete, searchable record of every interaction. Nothing is lost. Nothing is forgotten. Full transparency, full accountability.</p>
+</div>
+<div class="why-card reveal">
+<div class="why-icon"><i class="fas fa-fingerprint"></i></div>
+<h3>Bespoke, Never Generic</h3>
+<p>We do not use templates for author strategy. Every campaign, every outreach plan, every marketing framework is built from the ground up specifically for your book, your genre, your voice, and your career objectives.</p>
+</div>
+<div class="why-card reveal">
+<div class="why-icon"><i class="fas fa-network-wired"></i></div>
+<h3>Established Industry Network</h3>
+<p>Our direct relationships with publishers, literary agents, professional editors, and influential reviewers across multiple genres give your work access to opportunities that are not publicly available.</p>
+</div>
+<div class="why-card reveal">
+<div class="why-icon"><i class="fas fa-heart"></i></div>
+<h3>We Genuinely Care About Your Work</h3>
+<p>This is not a volume business for us. Every author we partner with receives our genuine investment of time, expertise, and creative energy. Your success is our success. Your story matters to us personally.</p>
+</div>
+<div class="why-card reveal">
+<div class="why-icon"><i class="fas fa-eye"></i></div>
+<h3>You Are Always Seen & Heard</h3>
+<p>We founded this company because too many brilliant authors were being ignored. When you work with us, you will never feel overlooked. Your voice, your concerns, and your ambitions are at the center of every decision we make.</p>
+</div>
+<div class="why-card reveal">
+<div class="why-icon"><i class="fas fa-file-contract"></i></div>
+<h3>Documented & Trackable Progress</h3>
+<p>Because everything is managed via email, you can track the entire history of our partnership at any time. Progress reports, strategy documents, outreach logs, and performance analytics are all in your inbox.</p>
+</div>
+<div class="why-card reveal">
+<div class="why-icon"><i class="fas fa-user-shield"></i></div>
+<h3>Your Manuscript Is Sacred</h3>
+<p>We treat every manuscript with the confidentiality and respect it deserves. Your intellectual property is protected at every stage of our engagement. We never share, distribute, or disclose your work without explicit written consent.</p>
+</div>
+<div class="why-card reveal">
+<div class="why-icon"><i class="fas fa-chess-king"></i></div>
+<h3>Strategic, Not Reactive</h3>
+<p>We don't throw tactics at the wall and hope something sticks. Every action we take is part of a coherent, long-term strategy designed to build sustained visibility and reader engagement for your title and your author brand.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FEATURED AUTHORS SECTION -->
+<section class="section dark-section" id="authors">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-feather-alt"></i> Featured Authors</div>
+<div class="section-divider"></div>
+<h2 class="section-title">Authors Who Trust <span class="highlight">Niel Publishing</span></h2>
+<p class="section-subtitle">
+We are honored to work with exceptional authors whose stories inspire, challenge, and transform readers around the world. Their trust in our expertise is the foundation of everything we do.
+</p>
+</div>
+<div class="authors-grid">
+<!-- ARIEL LAWHON -->
+<div class="author-card reveal-scale">
+<div class="author-card-header">
+<div class="author-portrait-wrapper">
+<a href="https://www.amazon.com/stores/Ariel-Lawhon/author/B004DI7HZS" target="_blank" rel="noopener noreferrer">
+<img src="Ariel.jfif" alt="Ariel Lawhon" class="author-portrait">
+</a>
+</div>
+</div>
+<div class="author-card-body">
+<h3 class="author-name">Ariel Lawhon</h3>
+<a href="mailto:authorariellawhon@gmail.com" class="author-email">
+<i class="fas fa-envelope"></i> authorariellawhon@gmail.com
+</a>
+<div class="author-book-section">
+<div class="author-book-label">Featured Title</div>
+<a href="https://www.amazon.com/Frozen-River-Novel-Ariel-Lawhon/dp/0385546874" target="_blank" rel="noopener noreferrer" class="author-book-link">
+<img src="Frozen River.jpg" alt="Frozen River by Ariel Lawhon" class="author-book-image">
+</a>
+<br>
+<a href="https://www.amazon.com/stores/Ariel-Lawhon/author/B004DI7HZS" target="_blank" rel="noopener noreferrer" class="amazon-badge">
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.045 18.02c.071-.116.186-.186.333-.186h.162c.14 0 .253.058.339.174l2.987 5.1c.088.152.088.312 0 .464l-1.491 2.478c-.086.146-.2.216-.343.216h-.162c-.147 0-.262-.058-.343-.174L.045 18.486c-.086-.146-.086-.312 0-.466zm7.278 0c.071-.116.186-.186.333-.186h.162c.14 0 .253.058.339.174l2.987 5.1c.088.152.088.312 0 .464l-1.491 2.478c-.086.146-.2.216-.343.216h-.162c-.147 0-.262-.058-.343-.174l-1.482-2.478c-.086-.146-.086-.312 0-.466z"/></svg>
+<i class="fab fa-amazon"></i> View on Amazon
+</a>
+</div>
+<div class="author-testimonial">
+<div class="stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+<p>"Working with Niel Publishing transformed how my work reaches readers. Their strategic approach to marketing and their genuine understanding of an author's needs is unmatched. I felt seen and valued from day one."</p>
+</div>
+</div>
+</div>
+<!-- NICHOLAS SPARKS -->
+<div class="author-card reveal-scale">
+<div class="author-card-header">
+<div class="author-portrait-wrapper">
+<a href="https://www.amazon.com/stores/Nicholas-Sparks/author/B000APZ33E" target="_blank" rel="noopener noreferrer">
+<img src="Nicholas.webp" alt="Nicholas Sparks" class="author-portrait">
+</a>
+</div>
+</div>
+<div class="author-card-body">
+<h3 class="author-name">Nicholas Sparks</h3>
+<a href="mailto:nicholasSparkswritesfictions@gmail.com" class="author-email">
+<i class="fas fa-envelope"></i> nicholasSparkswritesfictions@gmail.com
+</a>
+<div class="author-book-section">
+<div class="author-book-label">Featured Title</div>
+<a href="https://www.amazon.com/Counting-Miracles-Novel-Nicholas-Sparks/dp/0593449592" target="_blank" rel="noopener noreferrer" class="author-book-link">
+<img src="Counting Miracles.jpg" alt="Counting Miracles by Nicholas Sparks" class="author-book-image">
+</a>
+<br>
+<a href="https://www.amazon.com/stores/Nicholas-Sparks/author/B000APZ33E" target="_blank" rel="noopener noreferrer" class="amazon-badge">
+<i class="fab fa-amazon"></i> View on Amazon
+</a>
+</div>
+<div class="author-testimonial">
+<div class="stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+<p>"Niel Publishing understands what authors truly need. Their email-first approach keeps everything organized and transparent. The marketing intelligence they bring to the table is extraordinary. A genuine partner in every sense."</p>
+</div>
+</div>
+</div>
+<!-- JOHN OROSS -->
+<div class="author-card reveal-scale">
+<div class="author-card-header">
+<div class="author-portrait-wrapper">
+<a href="https://www.amazon.com/stores/John-Oross/author/B0DSPRHPBP" target="_blank" rel="noopener noreferrer">
+<img src="John.jfif" alt="John Oross" class="author-portrait">
+</a>
+</div>
+</div>
+<div class="author-card-body">
+<h3 class="author-name">John Oross</h3>
+<a href="mailto:johnoross1@outlook.com" class="author-email">
+<i class="fas fa-envelope"></i> johnoross1@outlook.com
+</a>
+<div class="author-book-section">
+<div class="author-book-label">Featured Title</div>
+<a href="https://www.amazon.com/Wandering-Thoughts-Collection-Poetry-Prose/dp/B0DSQC81BB" target="_blank" rel="noopener noreferrer" class="author-book-link">
+<img src="Wandering Thoughts.jpg" alt="Wandering Thoughts by John Oross" class="author-book-image">
+</a>
+<br>
+<a href="https://www.amazon.com/stores/John-Oross/author/B0DSPRHPBP" target="_blank" rel="noopener noreferrer" class="amazon-badge">
+<i class="fab fa-amazon"></i> View on Amazon
+</a>
+</div>
+<div class="author-testimonial">
+<div class="stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+<p>"As an emerging author, I needed a partner who would invest real attention in my work. Niel Publishing did exactly that. They made me feel like my poetry mattered, and their strategy gave my book the visibility I never imagined possible."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CEO SPOTLIGHT SECTION -->
+<section class="section ceo-section" id="ceo">
+<div class="section-container">
+<div class="ceo-grid">
+<div class="ceo-image-area reveal-left">
+<img src="Nielpublishingltd1.png" alt="Anthony Nathaniel - CEO & Co-Founder" class="ceo-portrait">
+</div>
+<div class="ceo-content reveal-right">
+<div class="ceo-label"><i class="fas fa-crown"></i> Meet The Founder</div>
+<h2>Anthony Nathaniel</h2>
+<div class="ceo-title-role">CEO & Co-Founder | Marketing Lead Specialist</div>
+<p>
+Anthony Nathaniel is not a publisher who stumbled into marketing. He is a Marketing Lead Specialist who recognized that the publishing industry was failing its most valuable asset: the authors themselves. With years of experience in strategic marketing, brand architecture, and audience development, Anthony founded Niel Publishing Ltd to bridge the gap between exceptional writing and the readers who need to discover it.
+</p>
+<p>
+His approach is rooted in a deep understanding of market dynamics, reader psychology, and the operational realities of modern publishing. He believes that every author, whether debut or established, deserves a strategic partner who brings the same level of professionalism, commitment, and expertise that the world's leading brands expect from their marketing teams.
+</p>
+<p>
+Under Anthony's leadership, Niel Publishing Ltd has become known for three things: unwavering integrity, meticulous attention to detail, and results that speak for themselves. Every project he oversees is managed with the personal investment of someone who genuinely believes in the transformative power of storytelling.
+</p>
+<p>
+Anthony personally reviews every author inquiry, participates in strategy development for every engagement, and maintains direct email communication with every author in the Niel Publishing portfolio. When you work with Niel Publishing, you are working with Anthony.
+</p>
+<div class="ceo-signature">Anthony Nathaniel</div>
+<div class="ceo-contact-info">
+<div class="ceo-contact-item">
+<i class="fas fa-envelope"></i>
+<a href="mailto:nielpublishingltd@gmail.com">nielpublishingltd@gmail.com</a>
+</div>
+<div class="ceo-contact-item">
+<i class="fas fa-building"></i>
+<span>Niel Publishing Ltd</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- GUARANTEE SECTION -->
+<section class="section guarantee-section">
+<div class="section-container">
+<div class="guarantee-box reveal-scale">
+<div class="guarantee-icon"><i class="fas fa-shield-alt"></i></div>
+<h2>Our Commitment To Every Author</h2>
+<p>
+When you entrust your work to Niel Publishing Ltd, you receive more than a service. You receive a partnership built on genuine respect for your craft, transparent communication documented through every email exchange, and a strategic commitment to elevating your title and your brand in a competitive marketplace.
+</p>
+<p>
+We promise that you will always know exactly what we are doing on your behalf, why we are doing it, and what results it is producing. We promise that every conversation will be documented, every milestone tracked, and every outcome measured against the goals we set together at the beginning of our engagement.
+</p>
+<p>
+We promise that your voice, your vision, and your ambition will be at the center of every strategy we design and every action we take. You will never be treated as one of many. You will always be treated as the priority you are.
+</p>
+<p>
+If at any point you feel that we are not living up to these promises, we want to hear about it immediately. Our reputation is built on author satisfaction, and we will do whatever it takes to ensure that your experience with Niel Publishing Ltd exceeds your expectations.
+</p>
+</div>
+</div>
+</section>
+<!-- CONTACT SECTION -->
+<section class="section dark-section" id="contact">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-paper-plane"></i> Start Your Journey</div>
+<div class="section-divider"></div>
+<h2 class="section-title">Let's Elevate <span class="highlight">Your Story Together</span></h2>
+<p class="section-subtitle">
+Your next chapter begins with a single message. Complete the form below and your inquiry will arrive directly in our inbox. We personally review and respond to every submission with a thoughtful, detailed reply tailored to your specific needs.
+</p>
+</div>
+<div class="contact-grid">
+<div class="contact-info-panel reveal-left">
+<h3>Why Reach Out Today?</h3>
+<p>
+Every day that your book goes without strategic marketing support is a day that potential readers, publishers, and opportunities pass by without knowing your work exists. We are here to change that. One email is all it takes to begin a partnership that could transform your publishing journey.
+</p>
+<div class="contact-detail">
+<div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+<div class="contact-detail-text">
+<strong>Email Us Directly</strong>
+<a href="mailto:nielpublishingltd@gmail.com">nielpublishingltd@gmail.com</a>
+</div>
+</div>
+<div class="contact-detail">
+<div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+<div class="contact-detail-text">
+<strong>Response Time</strong>
+<span>Within 24-48 business hours</span>
+</div>
+</div>
+<div class="contact-detail">
+<div class="contact-detail-icon"><i class="fas fa-file-alt"></i></div>
+<div class="contact-detail-text">
+<strong>What To Include</strong>
+<span>Your name, book title, genre, current stage, and what you need help with</span>
+</div>
+</div>
+<div class="contact-detail">
+<div class="contact-detail-icon"><i class="fas fa-lock"></i></div>
+<div class="contact-detail-text">
+<strong>Confidentiality Guaranteed</strong>
+<span>Your information and manuscript details are always protected</span>
+</div>
+</div>
+<img src="Nielpublishingltd1.png" alt="Anthony Nathaniel" class="contact-ceo-photo">
+<p style="margin-top: 12px; font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+<strong style="color: var(--gold);">Anthony Nathaniel</strong><br>
+CEO & Co-Founder, personally reviews every inquiry
+</p>
+</div>
+<div class="contact-form-panel reveal-right">
+<h3>Send Your Inquiry</h3>
+<p>All fields marked with * are required. Your message goes directly to our team.</p>
+<form action="https://formspree.io/f/mwvayjdw" method="POST" id="contactForm">
+<div class="form-row">
+<div class="form-group">
+<label for="firstName">First Name *</label>
+<input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+</div>
+<div class="form-group">
+<label for="lastName">Last Name *</label>
+<input type="text" id="lastName" name="lastName" placeholder="Your last name" required>
+</div>
+</div>
+<div class="form-group">
+<label for="email">Email Address *</label>
+<input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+</div>
+<div class="form-group">
+<label for="bookTitle">Book Title</label>
+<input type="text" id="bookTitle" name="bookTitle" placeholder="The title of your manuscript or published book">
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="genre">Genre</label>
+<select id="genre" name="genre">
+<option value="">Select your genre</option>
+<option value="Fiction - Literary">Fiction - Literary</option>
+<option value="Fiction - Romance">Fiction - Romance</option>
+<option value="Fiction - Thriller/Mystery">Fiction - Thriller/Mystery</option>
+<option value="Fiction - Science Fiction">Fiction - Science Fiction</option>
+<option value="Fiction - Fantasy">Fiction - Fantasy</option>
+<option value="Fiction - Historical">Fiction - Historical</option>
+<option value="Fiction - Horror">Fiction - Horror</option>
+<option value="Non-Fiction - Memoir">Non-Fiction - Memoir</option>
+<option value="Non-Fiction - Self-Help">Non-Fiction - Self-Help</option>
+<option value="Non-Fiction - Business">Non-Fiction - Business</option>
+<option value="Non-Fiction - Biography">Non-Fiction - Biography</option>
+<option value="Poetry">Poetry</option>
+<option value="Children's">Children's</option>
+<option value="Young Adult">Young Adult</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="form-group">
+<label for="stage">Current Stage</label>
+<select id="stage" name="stage">
+<option value="">Select your stage</option>
+<option value="Writing/Drafting">Writing / Drafting</option>
+<option value="Manuscript Complete">Manuscript Complete</option>
+<option value="Seeking Editor">Seeking Editor</option>
+<option value="Seeking Publisher">Seeking Publisher</option>
+<option value="Self-Published">Self-Published</option>
+<option value="Traditionally Published">Traditionally Published</option>
+<option value="Re-launching/Rebranding">Re-launching / Rebranding</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label for="service">Service of Interest</label>
+<select id="service" name="service">
+<option value="">What do you need help with?</option>
+<option value="Book Marketing & Brand Positioning">Book Marketing & Brand Positioning</option>
+<option value="Editorial Consulting">Editorial Consulting & Manuscript Refinement</option>
+<option value="Publisher & Editor Engagement">Publisher & Editor Engagement Strategy</option>
+<option value="Title Optimization & Metadata">Title Optimization & Metadata Strategy</option>
+<option value="Author Brand Development">Author Brand Development & Identity</option>
+<option value="Market Intelligence & Analytics">Market Intelligence & Genre Analytics</option>
+<option value="Full-Service Package">Full-Service Package (All Services)</option>
+<option value="Not Sure - Need Guidance">Not Sure - Need Guidance</option>
+</select>
+</div>
+<div class="form-group">
+<label for="message">Tell Us About Your Project *</label>
+<textarea id="message" name="message" placeholder="Share as much detail as you'd like about your book, your goals, and how you'd like us to help. The more we know, the more tailored our response will be." required></textarea>
+</div>
+<input type="hidden" name="_subject" value="New Author Inquiry - Niel Publishing Ltd">
+<input type="hidden" name="_template" value="table">
+<button type="submit" class="form-submit">
+<i class="fas fa-paper-plane"></i> Send My Inquiry
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer class="footer">
+<div class="section-container">
+<div class="footer-grid">
+<div class="footer-brand">
+<img src="Nielpublishingltd1.png" alt="Niel Publishing Logo" class="footer-brand-logo">
+<h3>Niel <span>Publishing</span> Ltd</h3>
+<p>
+Where authors are seen, understood, and elevated. We are committed to building lasting partnerships that transform manuscripts into legacies and writers into recognized brands.
+</p>
+<div class="footer-social">
+<a href="mailto:nielpublishingltd@gmail.com" title="Email Us"><i class="fas fa-envelope"></i></a>
+<a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+<div class="footer-column">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+<li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+<li><a href="#process"><i class="fas fa-chevron-right"></i> Our Process</a></li>
+<li><a href="#authors"><i class="fas fa-chevron-right"></i> Featured Authors</a></li>
+<li><a href="#ceo"><i class="fas fa-chevron-right"></i> Leadership</a></li>
+<li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Our Services</h4>
+<ul>
+<li><a href="#services"><i class="fas fa-chevron-right"></i> Book Marketing</a></li>
+<li><a href="#services"><i class="fas fa-chevron-right"></i> Editorial Consulting</a></li>
+<li><a href="#services"><i class="fas fa-chevron-right"></i> Publisher Outreach</a></li>
+<li><a href="#services"><i class="fas fa-chevron-right"></i> Title Optimization</a></li>
+<li><a href="#services"><i class="fas fa-chevron-right"></i> Brand Development</a></li>
+<li><a href="#services"><i class="fas fa-chevron-right"></i> Market Intelligence</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Get In Touch</h4>
+<ul>
+<li><a href="mailto:nielpublishingltd@gmail.com"><i class="fas fa-envelope"></i> nielpublishingltd@gmail.com</a></li>
+<li><a href="#contact"><i class="fas fa-paper-plane"></i> Submit an Inquiry</a></li>
+<li><a href="#ceo"><i class="fas fa-user-tie"></i> Meet Anthony Nathaniel</a></li>
+</ul>
+<div style="margin-top: 25px;">
+<p style="color: rgba(255,255,255,0.4); font-size: 0.82rem; line-height: 1.6;">
+<i class="fas fa-shield-alt" style="color: var(--gold); margin-right: 5px;"></i>
+All communications are confidential and documented via email for complete accountability.
+</p>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2024 Niel Publishing Ltd. All Rights Reserved. Built with integrity for authors worldwide.</p>
+<div class="footer-bottom-links">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="#">Confidentiality</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop">
+<i class="fas fa-chevron-up"></i>
+</button>
+<!-- JAVASCRIPT -->
+<script>
+// PRELOADER
+window.addEventListener('load', function() {
+setTimeout(function() {
+document.getElementById('preloader').classList.add('hidden');
+}, 2200);
+});
+// CUSTOM CURSOR GLOW
+const cursorGlow = document.getElementById('cursorGlow');
+document.addEventListener('mousemove', function(e) {
+cursorGlow.style.left = e.clientX - 10 + 'px';
+cursorGlow.style.top = e.clientY - 10 + 'px';
+});
+// NAVBAR SCROLL EFFECT
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 80) {
+navbar.classList.add('scrolled');
+} else {
+navbar.classList.remove('scrolled');
+}
+});
+// HAMBURGER MENU
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', function() {
+hamburger.classList.toggle('active');
+navLinks.classList.toggle('active');
+});
+// Close mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+link.addEventListener('click', function() {
+hamburger.classList.remove('active');
+navLinks.classList.remove('active');
+});
+});
+// SCROLL REVEAL ANIMATIONS
+function revealOnScroll() {
+const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+const windowHeight = window.innerHeight;
+reveals.forEach(function(el, index) {
+const elementTop = el.getBoundingClientRect().top;
+const revealPoint = 120;
+if (elementTop < windowHeight - revealPoint) {
+// Add stagger delay for grid children
+const parent = el.parentElement;
+if (parent) {
+const siblings = Array.from(parent.children).filter(function(child) {
+return child.classList.contains('reveal') ||
+child.classList.contains('reveal-left') ||
+child.classList.contains('reveal-right') ||
+child.classList.contains('reveal-scale');
+});
+const idx = siblings.indexOf(el);
+el.style.transitionDelay = (idx * 0.1) + 's';
+}
+el.classList.add('active');
+}
+});
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', function() {
+setTimeout(revealOnScroll, 300);
+});
+// COUNTER ANIMATION
+function animateCounters() {
+const counters = document.querySelectorAll('.stat-number[data-target]');
+counters.forEach(function(counter) {
+const target = parseInt(counter.getAttribute('data-target'));
+const elementTop = counter.getBoundingClientRect().top;
+const windowHeight = window.innerHeight;
+if (elementTop < windowHeight - 100 && !counter.classList.contains('counted')) {
+counter.classList.add('counted');
+let current = 0;
+const increment = target / 60;
+const timer = setInterval(function() {
+current += increment;
+if (current >= target) {
+current = target;
+clearInterval(timer);
+}
+counter.textContent = Math.floor(current) + '+';
+}, 30);
+}
+});
+}
+window.addEventListener('scroll', animateCounters);
+// SCROLL TO TOP BUTTON
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 500) {
+scrollTopBtn.classList.add('visible');
+} else {
+scrollTopBtn.classList.remove('visible');
+}
+});
+scrollTopBtn.addEventListener('click', function() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+// HERO PARTICLES
+function createParticles() {
+const container = document.getElementById('heroParticles');
+const colors = ['rgba(0,188,212,0.3)', 'rgba(233,30,99,0.2)', 'rgba(255,193,7,0.25)', 'rgba(212,168,85,0.3)'];
+for (let i = 0; i < 30; i++) {
+const particle = document.createElement('div');
+particle.classList.add('particle');
+const size = Math.random() * 6 + 2;
+particle.style.width = size + 'px';
+particle.style.height = size + 'px';
+particle.style.left = Math.random() * 100 + '%';
+particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+particle.style.animationDelay = (Math.random() * 10) + 's';
+container.appendChild(particle);
+}
+}
+createParticles();
+// SMOOTH SCROLL FOR ALL ANCHOR LINKS
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+const offsetTop = target.offsetTop - 80;
+window.scrollTo({
+top: offsetTop,
+behavior: 'smooth'
+});
+}
+});
+});
+// FORM SUBMISSION ENHANCEMENT
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+contactForm.addEventListener('submit', function(e) {
+const btn = contactForm.querySelector('.form-submit');
+btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+btn.style.opacity = '0.7';
+btn.disabled = true;
+// Re-enable after submission (Formspree handles redirect)
+setTimeout(function() {
+btn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully!';
+btn.style.opacity = '1';
+btn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+btn.style.color = '#fff';
+}, 2000);
+});
+}
+// NAVBAR ACTIVE LINK HIGHLIGHTING
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', function() {
+let current = '';
+sections.forEach(function(section) {
+const sectionTop = section.offsetTop - 150;
+if (window.scrollY >= sectionTop) {
+current = section.getAttribute('id');
+}
+});
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+link.style.color = '';
+if (link.getAttribute('href') === '#' + current) {
+link.style.color = '#d4a855';
+}
+});
+});
+</script>
+</body>
+</html>
